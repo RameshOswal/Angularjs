@@ -9,12 +9,20 @@
 <body ng-app="myapp">
 
   <div ng-controller="MyController" >
-      <span></span>
+		<!--this is an exapmle of interpolation directive-->
+      <span>{{mydata.text}}</span>
+	  <!-- this is interpolation dir used in function-->
+	  <span>{{mydata.textf()}}</span>
+	  <!--this is ng-bind directive-->
+	  <span ng-bind="mydata.textf();"></span>
   </div>
 
   <script>
     angular.module("myapp", [])
     .controller("MyController", function($scope) {
+		$scope.mydata = {};
+		$scope.mydata.text = "Ramesh OSwal";
+		$scope.mydata.textf = function(){return "is a good person";};
       //empty controller function
     });
   </script>
