@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!--using this link http://tutorials.jenkov.com/angularjs/index.html  to learn angularjs-->
+
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
+</head>
+
+	<body ng-app="myapp">
+		<!--ng-switch attribute is used here wid switching done on switch element in datamodel-->
+		<div ng-switch on="myData.switch" ng-controller="MyController" >
+			<!--like switch case for each case is done-->
+		  <span ng-switch-when="1">hello</span>
+		  <span ng-switch-when="3">im not there</span>
+		  <span ng-if="myData.textf()">if is shown or removed froim dom </span>
+		</div>
+
+		<script>
+			angular.module("myapp", [])
+			.controller("MyController", function($scope) {
+			  $scope.myData = {};
+			  $scope.myData.switch = 3;
+			  $scope.myData.textf= function(){return false;}
+			});
+		</script>
+
+	</body>
+</html>
