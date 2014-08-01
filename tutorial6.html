@@ -1,0 +1,32 @@
+<!Docktype html>
+<html>
+	<head>
+		<script src="angular.min.js"></script>
+	</head>
+	<body>
+		<div ng-app="myapp">
+			<div ng-controller="mycontroller">
+				hello
+				<div ng-repeat="item in myData.myitems | filter : myfun" ng-bind="item.text">
+				
+				</div>
+			</div>
+		</div>
+	</body>
+	<script >
+	
+	angular.module("myapp",[])
+		.controller("mycontroller",function($scope){
+		 $scope.myData = [];
+		 $scope.myData.myitems = [{text:"one"},{text:"two"},{text:"three"},{text:"four"}];
+		 $scope.myfun = function(item){
+			if(item.text=="two")
+				return false;
+			return true;
+		 }
+		
+		}
+	);
+	
+	</script>
+</html>
