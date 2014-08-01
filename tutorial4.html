@@ -7,22 +7,20 @@
 </head>
 
 	<body ng-app="myapp">
-		<!--ng-switch attribute is used here wid switching done on switch element in datamodel-->
-		<div ng-switch on="myData.switch" ng-controller="MyController" >
-			<!--like switch case for each case is done-->
-		  <span ng-switch-when="1">hello</span>
-		  <span ng-switch-when="3">im not there</span>
-		  <span ng-if="myData.textf()">if is shown or removed froim dom </span>
-		</div>
+		<div ng-controller="MyController" >
+			<div ng-include="'part1.html'">normal include</div>
+		
+			<div ng-include="myData.showIt &&
+								'part2.html' ||
+								'part3.html'">conditional include</div>
+			</div>
 
-		<script>
-			angular.module("myapp", [])
-			.controller("MyController", function($scope) {
-			  $scope.myData = {};
-			  $scope.myData.switch = 3;
-			  $scope.myData.textf= function(){return false;}
-			});
-		</script>
-
+			<script>
+				angular.module("myapp", [])
+				.controller("MyController", function($scope) {
+					$scope.myData = {};
+					$scope.myData.showIt = false;
+				});
+			</script>
 	</body>
 </html>
