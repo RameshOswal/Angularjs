@@ -14,7 +14,8 @@
 	  <!-- this is interpolation dir used in function-->
 	  <span>{{mydata.textf()}}</span>
 	  <!--this is ng-bind directive-->
-	  <span ng-bind="mydata.textf();"></span>
+	  <!--escaping diables not working-->
+	  <span ng-bind-html-unsafe="mydata.textf()"></span>
   </div>
 
   <script>
@@ -22,7 +23,8 @@
     .controller("MyController", function($scope) {
 		$scope.mydata = {};
 		$scope.mydata.text = "Ramesh OSwal";
-		$scope.mydata.textf = function(){return "is a good person";};
+		<!--escaping html code from textf();-->
+		$scope.mydata.textf = function(){return "<input type=\"text\">";};
       //empty controller function
     });
   </script>
