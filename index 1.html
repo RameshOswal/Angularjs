@@ -1,0 +1,29 @@
+<!DOCKTYPE html>
+
+<html>
+	<head>
+		<script src="angular.min.js" > </script>
+	</head>
+	<body>
+		<div ng-app="myfirstapp">
+			<!-- My view starts here -->
+			<div ng-controller="Hellocontroller" >
+				<h2> {{helloto.hello}} {{name}}</h2>
+			</div>
+			<!-- My view ends here -->
+		</div>
+	</body>
+	<script >
+		<!-- this code is a module app which we write to add an app to our website -->
+		angular.module("myfirstapp",[])
+			<!-- My controller starts here $scope is the model which holds all the values in it-->
+			<!-- $scope is the model value which is used in the view part -->
+			.controller("Hellocontroller",function($scope){
+				$scope.helloto = {};
+				$scope.helloto.hello = "my name is ";
+				$scope.name = " ramesh";
+			});
+			<!-- My controller ends here here -->
+		<!-- My app module ends here here -->	
+	</script>
+</html>
