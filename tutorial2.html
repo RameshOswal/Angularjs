@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<!--using this link http://tutorials.jenkov.com/angularjs/index.html  to learn angularjs-->
+
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
+</head>
+
+<body ng-app="myapp">
+
+  <div ng-controller="MyController" >
+      <span></span>
+  </div>
+
+  <script>
+    angular.module("myapp", [])
+    .controller("MyController", function($scope) {
+      //empty controller function
+    });
+  </script>
+
+</body>
+</html>
