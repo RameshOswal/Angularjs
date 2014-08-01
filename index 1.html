@@ -2,7 +2,7 @@
 
 <html>
 	<head>
-		<script src="angular.min.js" > </script>
+		
 	</head>
 	<body>
 		<div ng-app="myfirstapp">
@@ -13,7 +13,9 @@
 			<!-- My view ends here -->
 		</div>
 	</body>
+	<script src="angular.min.js" > </script>
 	<script >
+		
 		<!-- this code is a module app which we write to add an app to our website -->
 		angular.module("myfirstapp",[])
 			<!-- My controller starts here $scope is the model which holds all the values in it-->
@@ -21,7 +23,7 @@
 			.controller("Hellocontroller",function($scope){
 				$scope.helloto = {};
 				$scope.helloto.hello = "my name is ";
-				$scope.name = " ramesh";
+				$scope.name = " rahuil";
 			});
 			<!-- My controller ends here here -->
 		<!-- My app module ends here here -->	
