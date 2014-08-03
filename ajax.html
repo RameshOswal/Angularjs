@@ -20,7 +20,7 @@
             $scope.myData = {};
             $scope.myData.doClick = function(item, event) {
 
-                var responsePromise = $http.get("/angularjs-examples/json-test-data.jsp");
+                var responsePromise = $http.get("http://www.mocky.io/v2/53ddf86f08772ef2100064e9");
 
                 responsePromise.success(function(data, status, headers, config) {
                     $scope.myData.fromServer = data.title;
