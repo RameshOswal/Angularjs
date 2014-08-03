@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<!--printing this elemtn {{  ;}}-->
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
 </head>
@@ -9,7 +9,7 @@
 
   <div ng-controller="MyController" >
 	<div ng-repeat="item in myData.items" >
-		<div ng-click="myData.doClick(item)" >Click here</div>
+		<div ng-click="myData.doClick(item,$event)" >Click here</div>
 	</div>
 </div>
 
@@ -18,8 +18,8 @@
             .controller("MyController", function($scope) {
                 $scope.myData = {};
 				$scope.myData.items = [{v:1},{v:2}];
-                $scope.myData.doClick = function(item) {
-                    alert("clicked"+item.v);
+                $scope.myData.doClick = function(item,event) {
+                    alert("clicked wid item value "+item.v+" and clikcet at location x:"+event.x);
                 }
             } );
 </script>
