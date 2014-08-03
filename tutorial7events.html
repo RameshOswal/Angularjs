@@ -8,15 +8,18 @@
 <body ng-app="myapp">
 
   <div ng-controller="MyController" >
-    <div ng-click="myData.doClick()">Click here</div>
+	<div ng-repeat="item in myData.items" >
+		<div ng-click="myData.doClick(item)" >Click here</div>
+	</div>
 </div>
 
 <script>
     angular.module("myapp", [])
             .controller("MyController", function($scope) {
                 $scope.myData = {};
-                $scope.myData.doClick = function() {
-                    alert("clicked");
+				$scope.myData.items = [{v:1},{v:2}];
+                $scope.myData.doClick = function(item) {
+                    alert("clicked"+item.v);
                 }
             } );
 </script>
