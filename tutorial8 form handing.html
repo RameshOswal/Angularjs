@@ -4,16 +4,30 @@
 		<script src="angular.min.js" > </script>
 	<head>
 	<body ng-app="myapp">
-		<div ng-controller="mycontroller" >
-			<input type="text" ng-model="myForm.mytext" > </input>
-			<span > {{ myForm.mytext }}</span> 
-		</div>
-	</body>
-	<script>
-		angular.module("myapp",[])
-			.controller("mycontroller",function($scope){
-				$scope.myForm = {};
-				$scope.myForm.mytext = "Type here";
-			});
-	</script>
+		<div ng-controller="MyController" >
+    <form>
+        <select multiple="true" ng-model="myForm.car"
+                ng-options="obj.id as obj.name for obj in myForm.options">
+        </select>
+    </form>
+
+    <div>
+        {{myForm.car}}
+    </div>
+</div>
+
+<script>
+    angular.module("myapp", [])
+        .controller("MyController", function($scope) {
+            $scope.myForm = {};
+            $scope.myForm.car  = ["nissan"];
+
+            $scope.myForm.options = [
+              { id : "nissan", name: "Nissan" }
+             ,{ id : "toyota", name: "Toyota" }
+             ,{ id : "fiat"  , name: "Fiat" }
+             ];
+
+        } );
+</script>
 </html>
