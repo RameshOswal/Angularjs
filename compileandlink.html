@@ -21,7 +21,11 @@
 			
             var linkFunction = function($scope, element, attributes) {
                 element.html("This is the new content: " + $scope.user.firstName);
-                element.css("background-color", "#ffff00");
+				
+				if($scope.user.firstName == "Ramesh")
+					element.css("background-color", "blue");
+				else
+					element.css("background-color", "#ffff00");
             }
 
             return linkFunction;
