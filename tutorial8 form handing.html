@@ -7,7 +7,7 @@
 		<div ng-controller="mycontroller">
 		<div>
 			<input type="text" ng-model="myFormdata.Firstname" ng-minlength="5"> Firstname</input>
-			<div >{{$scope.minfivechar()}}</div>
+			<span ng-show="minfivechar()">min fibve char</span>
 		</div>
 		<div>
 			<input type="text" ng-model="myFormdata.Lastname"> Lastname</input>
@@ -24,12 +24,12 @@
 			angular.module("myapp",[])
 				.controller("mycontroller",function($scope){
 					$scope.myFormdata = {};
-					$scope.myFormdata.Firstname = "Firstname"; 
+					$scope.myFormdata.Firstname = "f"; 
 					$scope.myFormdata.Lastname = "Lastname";
+					$scope.myFormdata.len = $scope.myFormdata.Firstname.length;
 					$scope.minfivechar = function()
 					{
-						return "hello "
-						if($scope.myFormdata.Firstname.length>=5)
+						if(this.myFormdata.Firstname.length<5)
 							return true;
 						else 
 							return false;
