@@ -9,7 +9,7 @@
 				 Name :
 				<input type = "text" ng-model="myData.myitem"> </input>
 				<div ng-bind="myData.myitem"> </div>
-				 <span>  this div will be replaced </span> 
+				 <newname>  this div will be replaced </newname> 
 			</div>
 		</form>
 	</body>
@@ -22,7 +22,7 @@
 					$scope.myData.myfun = function(){return "this is my function"};
 				
 				});
-				myapp.directive('span',function(){
+				myapp.directive('newname',function(){
 					var directive = {};
 					directive.restrict = 'E'; /*restrict this directive to elememts   */
 					directive.templateUrl = "div-temp.html"

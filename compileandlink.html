@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<script src="angular.min.js" ></script>
+	</head>
+	<body>
+		<form ng-app="myapp">
+		<div ng-controller="MyController" >
+    <userinfo user="Ramesh">This will be replaced</userinfo>
+	<userinfo user="Jakob">This will be replaced</userinfo>
+</div>
+
+<script>
+    myapp = angular.module("myapp", []);
+    myapp.directive('userinfo', function() {
+        var directive = {};
+
+        directive.restrict = 'E'; /* restrict this directive to elements */
+		directive.scope = { user:"=user" }
+        directive.compile = function(element, attributes) {
+            element.css("border", "1px solid #cccccc");
+			
+            var linkFunction = function($scope, element, attributes) {
+                element.html("This is the new content: " + $scope.user.firstName);
+                element.css("background-color", "#ffff00");
+            }
+
+            return linkFunction;
+        }
+
+        return directive;
+    })
+    myapp.controller("MyController", function($scope, $http) {
+        $scope.cssClass = "notificationDiv";
+		$scope.Jakob = {};
+        $scope.Jakob.firstName = "Jakob";
+		$scope.Ramesh = {};
+		$scope.Ramesh.firstName = "Ramesh";
+		
+        $scope.doClick = function() {
+            console.log("doClick() called");
+        }
+    });
+</script> 
+</html>	
