@@ -1,0 +1,34 @@
+<html>
+	<head>
+		<script src="angular.min.js" ></script>
+	</head>
+	<body>
+		<form ng-app="myapp">
+			<div ng-controller="mycontroller">
+				
+				 Name :
+				<input type = "text" ng-model="myData.myitem"> </input>
+				<div ng-bind="myData.myitem"> </div>
+				 <span>  this div will be replaced </span> 
+			</div>
+		</form>
+	</body>
+		<script>
+			myapp =angular.module("myapp",[])
+				.controller("mycontroller",function($scope){
+					$scope.myData = {};
+					$scope.myData.myitem = "this is my item"
+					
+					$scope.myData.myfun = function(){return "this is my function"};
+				
+				});
+				myapp.directive('span',function(){
+					var directive = {};
+					directive.restrict = 'E'; /*restrict this directive to elememts   */
+					directive.template = "My first Directive : {{myData.myitem}}";
+					return directive;
+					}		
+				);
+		
+		</script>
+</html>	
