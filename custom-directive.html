@@ -25,7 +25,9 @@
 				myapp.directive('span',function(){
 					var directive = {};
 					directive.restrict = 'E'; /*restrict this directive to elememts   */
-					directive.template = "My first Directive : {{myData.myitem}}";
+					directive.templateUrl = "div-temp.html"
+					//directive.template = "<b >My first Directive : {{myData.myitem}} </b>";
+					
 					return directive;
 					}		
 				);
